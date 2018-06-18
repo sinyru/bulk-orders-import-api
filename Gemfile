@@ -8,6 +8,7 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rack-cors', require: 'rack/cors'
+gem 'rest-client'
 gem 'rails', '~> 5.0.1'
 
 group :development, :test do

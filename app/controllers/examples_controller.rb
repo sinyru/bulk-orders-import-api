@@ -5,9 +5,14 @@ class ExamplesController < OpenReadController
   # GET /examples
   # GET /examples.json
   def index
-    @examples = Example.all
-
-    render json: @examples
+    api_key = ENV['SHOPIFY_API_KEY']
+    secret_key = ENV['SHOPIFY_SECRET_KEY']
+    url = ENV['SHOPIFY_URL']
+    @response = RestClient::Request.execute(
+      method: :get,
+      url: "https://#{api_key}:#{secret_key}@#{url}/admin/orders.json"
+    )
+    render json: @response
   end
 
   # GET /examples/1

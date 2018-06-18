@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 20180618163343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,33 @@ ActiveRecord::Schema.define(version: 2) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_examples_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "Export_NYC_Order_Number",               null: false
+    t.string   "Export_NYC_Order_Date",                 null: false
+    t.integer  "Export_NYC_Item_Quantity",              null: false
+    t.string   "Export_NYC_Item_Number",                null: false
+    t.string   "Export_NYC_Item_Description",           null: false
+    t.string   "Export_NYC_Contact",                    null: false
+    t.string   "Export_NYC_Ship_Org",                   null: false
+    t.string   "Export_NYC_Ship_Address",               null: false
+    t.string   "Export_NYC_Ship_City",                  null: false
+    t.string   "Export_NYC_Ship_State",                 null: false
+    t.string   "Export_NYC_Ship_Zip",                   null: false
+    t.string   "Export_NYC_Ship_Country",               null: false
+    t.string   "Export_NYC_Ship_Phone",                 null: false
+    t.string   "Export_NYC_Ship_Email",                 null: false
+    t.string   "Export_NYC_Ship_Delivery_Instructions", null: false
+    t.string   "Export_NYC_Bill_Org",                   null: false
+    t.string   "Export_NYC_Bill_Address",               null: false
+    t.string   "Export_NYC_Bill_City",                  null: false
+    t.string   "Export_NYC_Bill_State",                 null: false
+    t.string   "Export_NYC_Bill_Zip",                   null: false
+    t.string   "Export_NYC_Bill_Country",               null: false
+    t.float    "Export_NYC_Price",                      null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "users", force: :cascade do |t|

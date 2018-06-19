@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20180618163343) do
     t.string   "Export_NYC_Bill_Zip",                   null: false
     t.string   "Export_NYC_Bill_Country",               null: false
     t.float    "Export_NYC_Price",                      null: false
+    t.string   "Export_NYC_Item_Number_two"
+    t.integer  "Export_NYC_Item_Quantity_two"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end

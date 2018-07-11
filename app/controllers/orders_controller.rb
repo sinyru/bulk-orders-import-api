@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
     variant_id_one = (order_params["Export_NYC_Item_Number"] == "NYC-Lube")? 37894160455: 37894117319;
     ship_country = (order_params["Export_NYC_Ship_Country"].length > 2)? order_params["Export_NYC_Ship_Country"][0,2] : order_params["Export_NYC_Ship_Country"];
     bill_country = (order_params["Export_NYC_Bill_Country"].length > 2)? order_params["Export_NYC_Bill_Country"][0,2] : order_params["Export_NYC_Bill_Country"];
+    ship_address = (order_params["Export_NYC_Ship_Org"].split(" ").length > 1)? order_params["Export_NYC_Ship_Org"].split(" ").drop(1).join(" ") : '.';
     line_items = []
     line_items << {
                     "variant_id": variant_id_one,
@@ -38,7 +39,7 @@ class OrdersController < ApplicationController
                     "line_items": line_items,
                     "shipping_address": {
                       "first_name": order_params["Export_NYC_Ship_Org"].split(" ")[0],
-                      "last_name": order_params["Export_NYC_Ship_Org"].split(" ").drop(1).join(" "),
+                      "last_name": ship_address,
                       "address1": order_params["Export_NYC_Ship_Address"],
                       "phone": order_params["Export_NYC_Ship_Phone"],
                       "city": order_params["Export_NYC_Ship_City"],
